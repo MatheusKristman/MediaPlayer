@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'PT Sans', sans-serif;
+}
+
+.container{
+    position: relative;
+    top: 50%;
+    width: 370px;
+    height: 560px;
+    padding: 30px;
+    background: #2b445e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8e5163, #6C5B7B, #2b445e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8e5163, #6C5B7B, #2b445e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 0px 10px 20px black;
+    border-radius: 15px;
+    border: solid 1px #2C5364;
+    box-sizing: border-box;
+    margin: auto;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.nomeMusica{
+    font-size: 35px;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.artista{
+    font-size: 25px;
+    color: white;
+    padding-top: 10px;
+    text-shadow: 2px 2px 5px black;
+}
+
+.cover{
+    width: 250px;
+    height: 250px;
+    margin: 1.5rem auto;
+    margin-bottom: 30px;
+    background-size: cover;    
+    /* background-image: url(./assets/cover/LUMBERJACK.png); */
+    border-radius: 3px;
+}
+
+.barra{
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;    
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;    
+    background: #C06C84;
+}
+
+.barra::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;    
+    width: 1px;
+    height: 20px;
+    background: #1c343d;
+    box-shadow: -400px 0 0 400px #72404e;
+}
+
+.tempoAtual{
+    margin-top: 5px;
+    float: left;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.duracao{
+    margin-top: 5px;
+    float: right;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.controle{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+    gap: 2rem;
+}
+
+i{  
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.fa-forward{
+    padding-left: 3px;
+}
+
+.fa-backward{
+    padding-right: 3px;
+}
+
+.fa-play{    
+    margin: auto;
+    font-size: 25px;
+}
+
+.fa-pause{    
+    margin: auto;
+    font-size: 25px;
+}
+
+.anterior{
+    position: relative;    
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;    
+    background: linear-gradient(0deg, #528ebf, #ef86a4);
+    cursor: pointer;      
+}
+
+.anterior:hover{
+    background: linear-gradient(0deg, #355C7D, #C06C84);
+}
+
+.play{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(0deg, #528ebf, #ef86a4);
+    cursor: pointer;  
+}
+
+.play:hover{
+    background: linear-gradient(0deg, #355C7D, #C06C84);
+}
+
+.proximo{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(0deg, #528ebf, #ef86a4);
+    cursor: pointer;         
+}
+
+.proximo:hover{
+    background: linear-gradient(0deg, #355C7D, #C06C84);
+}
+
+.controladorVolume{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;    
+    gap: 2rem;
+}
+.volume{
+    position: relative;
+    bottom: 3px;
+    appearance: none;
+    display: block;    
+    margin: auto;    
+    width: 80%;
+    height: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #C06C84;
+}
+
+.volume::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;    
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: -400px 0 0 400px #72404e;
+}
+
+.volume::-moz-range-thumb{
+    appearance: none;    
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: -400px 0 0 400px #72404e;
+}
+
+#menos{
+    position: relative;
+    bottom: 5px;
+    float: left;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+#mais{
+    position: relative;
+    bottom: 5px;
+    float: right;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
