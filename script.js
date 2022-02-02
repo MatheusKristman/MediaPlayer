@@ -3,7 +3,6 @@ let musicaAtual = 0
 let nomeMusica = document.querySelector(".nomeMusica");
 let artista = document.querySelector(".artista");
 let musica = document.querySelector("#audio");
-// let musicaArray = musica[i]
 let cover = document.querySelector(".cover");
 let barra = document.querySelector(".barra");
 let tempoAtual = document.querySelector(".tempoAtual");
@@ -20,41 +19,46 @@ musica.volume = 0.5;
 let musicas = [
     {
         nome: "LUMBERJACK",
-        pasta: "./assets/audio/LUMBERJACK (Audio).mp3",
+        pastamp3: "./assets/audio/LUMBERJACK (Audio).mp3",
+        pastaogg: "./assets/audio/LUMBERJACK (Audio).ogg",
         artista: "Tyler, The Creator",
         cover: "./assets/cover/LUMBERJACK.png"
     },
     {
         nome: "Sakura",
-        pasta: "./assets/audio/yun li - sakura [prod biffe] (official video).mp3",
+        pastamp3: "./assets/audio/yun li - sakura [prod biffe] (official video).mp3",
+        pastaogg: "./assets/audio/yun li - sakura [prod biffe] (official video).ogg",
         artista: "Yung Lixo",
         cover: "./assets/cover/sakura.jpg"
     },
     {
         nome: "Syphon Filter",
-        pasta: "./assets/audio/yung lixo - syphon filter ft. yung buda [prod biffe] (official visualizer).mp3",
+        pastamp3: "./assets/audio/yung lixo - syphon filter ft. yung buda [prod biffe] (official visualizer).mp3",
+        pastaogg: "./assets/audio/yung lixo - syphon filter ft. yung buda [prod biffe] (official visualizer).ogg",
         artista: "Yung Lixo ft. Yung Buda",
         cover: "./assets/cover/syphonfilter.png"
     },
     {
         nome: "Tomodachi",
-        pasta: "./assets/audio/yung lixo - tomodachi ft. SHO-SENSEI!! [prod biffe] (official video).mp3",
+        pastamp3: "./assets/audio/yung lixo - tomodachi ft. SHO-SENSEI!! [prod biffe] (official video).mp3",
+        pastaogg: "./assets/audio/yung lixo - tomodachi ft. SHO-SENSEI!! [prod biffe] (official video).ogg",
         artista: "Yung Lixo ft. SHO SENSEI!!",
         cover: "./assets/cover/tomodachi.png"
     },
     {
         nome: "Runaway",
-        pasta: "./assets/audio/AURORA - Runaway (Audio).mp3",
+        pastamp3: "./assets/audio/AURORA - Runaway (Audio).mp3",
+        pastaogg: "./assets/audio/AURORA - Runaway (Audio).ogg",
         artista: "AURORA",
         cover: "./assets/cover/Runaway.jpg"
     },
     {
         nome: "Gimme Love",
-        pasta: "./assets/audio/Joji - Gimme Love (Official Audio).mp3",
+        pastamp3: "./assets/audio/Joji - Gimme Love (Official Audio).mp3",
+        pastaogg: "./assets/audio/Joji - Gimme Love (Official Audio).ogg",
         artista: "Joji",
         cover: "./assets/cover/GimmeLove.jpg"
     }
-
 ]
 
 // formatar o tempo
@@ -84,13 +88,19 @@ setInterval(() => {
 
 // setup inicial do player
 let setup = i => {   
+    musica==null ? null : musica.remove();
+    let audio = document.createElement("audio");
+    audio.innerHTML = "<source src='" + musicas[i].pastamp3 + "' type='audio/mpeg'> <source src='" + musicas[i].pastaogg + "' type='audio/ogg'>";
+    audio.setAttribute("id", "audio");
+    document.querySelector("body").prepend(audio);
+    musica = document.querySelector("#audio")
+
     nomeMusica.innerHTML = musicas[i].nome;
     artista.innerHTML = musicas[i].artista;
     cover.style.backgroundImage = "url(" + musicas[i].cover + ")";
     barra.value = 0;
-    musica.src = musicas[i].pasta;        
     tempoAtual.innerHTML = "00:00";
-    musicaAtual = i
+    musicaAtual = i;         
     
     musica.onloadedmetadata = function(){            
     setTimeout(() => {
@@ -127,14 +137,13 @@ const playMusic = () => {
 
 proximo.addEventListener("click", () => {
     if(musicaAtual >= musicas.length - 1){
-        musicaAtual = 0;
-        
+        musicaAtual = 0;        
     }else{
-        musicaAtual++;
-        
+        musicaAtual++;    
     }
     setup(musicaAtual);
-    playMusic();
+    musica.volume = volume.value;
+    playMusic();    
 })
 
 anterior.addEventListener("click", () => {
@@ -144,6 +153,7 @@ anterior.addEventListener("click", () => {
         musicaAtual--
     }
     setup(musicaAtual);
+    musica.volume = volume.value;
     playMusic();
 })
 
@@ -162,4 +172,3 @@ menos.addEventListener("click", () => {
     volume.value = musica.volume
     console.log(volume.value)
 })
-
