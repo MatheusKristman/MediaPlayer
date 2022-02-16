@@ -157,7 +157,7 @@ anterior.addEventListener("click", () => {
     playMusic();
 })
 
-volume.addEventListener("change", () => {
+volume.addEventListener("mousemove", () => {
     musica.volume = volume.value;
 })
 
